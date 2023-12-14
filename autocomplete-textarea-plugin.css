@@ -1,0 +1,44 @@
+.autocomplete-container {
+  position: relative;
+  width: fit-content;
+}
+
+.autocomplete-textarea {
+  min-height: 450px;
+  height: 450px;
+  padding: 10px;
+  overflow-y: auto;
+  outline: none;
+  resize: horizontal;
+  overflow: auto;
+  width: 800px;
+}
+
+.autocomplete-textarea .insertitem {
+  background-color: #dc3545;
+  border-radius: 5px;
+  padding: 0 5px;
+  padding-bottom: 3px;
+  font-size: 14px;
+}
+
+.autocomplete-dropdown {
+  position: absolute;
+  overflow-y: auto;
+  z-index: 1000;
+  height: 245px;
+}
+
+.autocomplete-textarea[contenteditable="true"] {
+  display: inline-block;
+  white-space: pre-wrap;
+}
+
+div.autocomplete-container,
+div.autocomplete-container textarea,
+div.autocomplete-container span {
+  border: 1px solid #fff !important;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+}

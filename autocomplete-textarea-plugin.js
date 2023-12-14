@@ -22,12 +22,11 @@
             // 创建编辑区域和下拉菜单
             this.$editableDiv = $('<div>', {
                 class: 'form-control autocomplete-textarea',
-                style: 'resize: both; overflow: auto; width: 300px; height: 150px;',
                 contenteditable: true
             });
 
             this.$dropdown = $('<div>', {
-                class: 'autocomplete-dropdown',
+                class: 'autocomplete-dropdown list-group',
                 style: 'display: none;'
             });
 
@@ -66,7 +65,7 @@
             this.$dropdown.empty();
             this.options.items.forEach(item => {
                 const link = $('<a>', {
-                    class: 'dropdown-item',
+                    class: 'dropdown-item list-group-item list-group-item-action',
                     href: '#',
                     text: item
                 });
@@ -103,8 +102,9 @@
             var tnode = range.commonAncestorContainer;
             var start = range.startOffset;
             var text = tnode.textContent;
+
             const spanElement = document.createElement('span');
-            spanElement.className = 'red-text';
+            spanElement.className = 'insertitem text-white';
             spanElement.innerText = `[${item}]`;
             const emptyNode = document.createTextNode('\u200B');
 
@@ -133,7 +133,7 @@
 
             const spanContainer = range.startContainer.parentElement;
 
-            if (spanContainer && spanContainer.classList.contains('red-text')) {
+            if (spanContainer && spanContainer.classList.contains('insertitem')) {
                 if (startOffset > 0) {
                     spanContainer.parentNode.removeChild(spanContainer);
                 }
@@ -168,8 +168,14 @@
 
         // 新添加的方法
         getText: function () {
+
+            const zeroWidthRegex = /[\u200B-\u200D]/g;
+
+            // 替换匹配到的零宽字符为一个空格
+            const stringWithoutZeroWidth = this.$editableDiv.text().trim().replace(zeroWidthRegex, '');
+            
             // 获取编辑区域的文本内容（包含换行）
-            return this.$editableDiv.text().trim();
+            return stringWithoutZeroWidth;
         },
 
         // 新添加的方法
