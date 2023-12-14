@@ -13,6 +13,12 @@ Autocomplete Textarea jQuery 通过 '@' 符号触发的无缝自动完成功能�
 1. 在 HTML 文件中引入 jQuery 和 Autocomplete Textarea 插件脚本。
 
    ```html
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="autocomplete-textarea-plugin.css">
+
+   ...
+   
    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
    <script src="autocomplete-textarea-plugin.js"></script>
    ```
